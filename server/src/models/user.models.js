@@ -36,7 +36,6 @@ const userSchema = new Schema({
     },
     avatar: {
         type: String,
-        public_id:String,
         url:String,
         trim: true
     },
@@ -67,7 +66,7 @@ userSchema.methods.comparePassword = function (plainPassword) {
 userSchema.methods.generateAccessToken = function () {
     return jwt.sign(
         {
-            _id: this._id
+            id: this._id
         },
         process.env.ACCESS_TOKEN_SECRET,
         {
