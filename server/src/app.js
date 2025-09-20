@@ -20,7 +20,8 @@ app.use(cors({
 }))
 
 
-app.get('/test', (req, res) => {
-    console.log('Hi from server')
-})
+//import route
+import userRouter from './routes/user.routes.js'
 
+//use rotues
+app.use('/api/v1/users', userRouter)
