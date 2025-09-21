@@ -8,7 +8,9 @@ import {
     logout,
     deleteProfile,
     updateAvatar,
-    updateRefreshToken,
+    getUser,
+    refreshAcessToken,
+    socialAuth,
 } from "../controllers/user.controllers.js";
 
 import middleware from "../middleware/middleware.js";
@@ -16,17 +18,16 @@ import upload from "../lib/multer.js";
 
 const router = Router();
 
-router.post("/register", registerUser);
-router.post("/verify-email/:id", verifyEmail);
-router.post("/login", loginUser);
-
-
-
-router.post("/refresh-token",updateRefreshToken);
-router.put("/update", middleware, updateUser);
-router.put("/update-password", middleware, updatePassword);
-router.post("/logout", middleware, logout);
-router.delete("/delete-profile", middleware, deleteProfile);
-router.put("/update-avatar", middleware, upload.single("avatar"), updateAvatar);
+router.route('/register').post(registerUser) // tested
+router.route('/verify-email/:id').post(verifyEmail) //tested
+router.route('/login').post(loginUser) //tested
+router.route('/refresh-token').post(refreshAcessToken) //tested
+router.route('/update-profile').put(middleware, updateUser) //tested
+router.route('/update-password').put(middleware, updatePassword) //tested
+router.route('/logout').post(middleware, logout) //tested
+router.route('/delete-profile').delete(middleware, deleteProfile) //tested
+router.route('/update-avatar').put(middleware, upload.single("avatar"), updateAvatar) //tested
+router.route('/me').get(middleware, getUser) //tested
+router.route('/social-auth').post( socialAuth) //tested
 
 export default router;

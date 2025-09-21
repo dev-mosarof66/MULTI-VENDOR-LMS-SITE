@@ -9,12 +9,12 @@ const emailReg = /^[a-z0-9]+(\.[a-z0-9]+)*@gmail\.com$/
 const userSchema = new Schema({
     name: {
         type: String,
-        required: [true,'please enter your name'],
+        required: [true, 'please enter your name'],
         trim: true
     },
     email: {
         type: String,
-        required: [true,'please enter your email'],
+        required: [true, 'please enter your email'],
         trim: true,
         unique: true,
         validate: {
@@ -26,18 +26,21 @@ const userSchema = new Schema({
     },
     password: {
         type: String,
-        required: [true,'please enter your password'],
-        length:[6,'Password must be at least 6 characters'],
+        required: [true, 'please enter your password'],
+        length: [6, 'Password must be at least 6 characters'],
         trim: true
     },
     isVarified: {
         type: Boolean,
         default: false
     },
-    avatar: {
+    avatar_url: {
         type: String,
-        url:String,
-        trim: true
+        default: null
+    },
+    avatar_public_id: {
+        type: String,
+        default: null
     },
     role: {
         type: String,
@@ -78,7 +81,7 @@ userSchema.methods.generateAccessToken = function () {
 userSchema.methods.generateRefreshToken = function () {
     return jwt.sign(
         {
-            _id: this._id,
+            id: this._id,
 
         },
         process.env.REFRESH_TOKEN_SECRET,

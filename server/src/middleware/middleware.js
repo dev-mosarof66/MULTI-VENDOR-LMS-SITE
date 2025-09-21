@@ -3,13 +3,13 @@ import jwt from 'jsonwebtoken'
 const middleware = async (req, res, next) => {
     const token = await req.cookies.access_token;
     if (!token) {
-        return res.status(401).json({ message: 'Access token is required' });
+        return res.status(401).json({ message: 'Login session expired.' });
     }
 
     try {
-        const decoded = await jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
+        const decoded =  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
         if (!decoded) {
-            return res.status(401).json({ message: 'Access token is required' });
+            return res.status(401).json({ message: 'Login session expired.' });
         }
 
         req.user = decoded.id

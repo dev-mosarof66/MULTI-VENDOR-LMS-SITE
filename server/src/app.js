@@ -12,7 +12,7 @@ app.use(express.json({
 app.use(express.urlencoded({
     limit: "50mb"
 }))
-app.use(express.static('/public'))
+app.use(express.static('public'))
 app.use(cors({
     origin: process.env.ORIGIN,
     credentials: true,
