@@ -128,12 +128,12 @@
     <div class="bill-invoice">
       <div class="bill-to">
         <strong>Bill To</strong>
-        <p>{{order.user.name}}</p>
-        {{order.user.email}}
+        <p><%= order.user.name %></p>
+        <%= order.user.email %>
       </div>
       <div class="invoice-meta">
-        <div><strong>Invoice No:</strong> INV-{{order._id}}</div>
-        <div><strong>Issue Date:</strong> {{order.date}}</div>
+        <div><strong>Invoice No:</strong> INV-<%= order._id %></div>
+        <div><strong>Issue Date:</strong> <%= order.date %></div>
       </div>
     </div>
 
@@ -147,16 +147,16 @@
       </thead>
       <tbody>
         <tr>
-          <td>{{order.name}}</td>
+          <td><%= order.name %></td>
           <td>1</td>
-          <td>${{order.price}}</td>
+          <td>$<%= order.price %></td>
         </tr>
       </tbody>
     </table>
 
     <div class="totals">
       <div>
-        <div><strong>Total:</strong><strong>${{order.price}}</strong></div>
+        <div><strong>Total:</strong><strong>$<%= order.price %></strong></div>
       </div>
     </div>
 
@@ -164,7 +164,7 @@
       <strong>Pay by Bank Transfer</strong>
       Bank/Sort Code: 123456<br>
       Account Number: 12345678<br>
-      Payment Reference: INV-{{order._id}}<br>
+      Payment Reference: INV-<%= order._id %><br>
       Bank Name: Example Bank
     </div>
 

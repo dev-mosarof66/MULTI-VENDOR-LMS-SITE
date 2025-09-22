@@ -181,8 +181,8 @@ export const deleteProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(id);
   if (!user) return res.status(404).json({ success: false, message: "No user data found." });
 
-  if (user.avatar_public_id) {
-    await cloudinary.uploader.destroy(user.avatar_public_id);
+  if (user.avatar.public_id) {
+    await cloudinary.uploader.destroy(user.avatar.public_id);
   }
   await redis.del(`user:${id.toString()}`);
   await User.findByIdAndDelete(id);
@@ -209,12 +209,12 @@ export const updateAvatar = asyncHandler(async (req, res) => {
   const user = await User.findById(id).select("-password");
   if (!user) return res.status(404).json({ success: false, message: "No user data found." });
 
-  if (user.avatar_public_id) {
-    await cloudinary.uploader.destroy(user.avatar_public_id);
+  if (user.avatar.public_id) {
+    await cloudinary.uploader.destroy(user.avatar.public_id);
   }
 
-  user.avatar_public_id = avatar?.public_id;
-  user.avatar_url = avatar?.secure_url;
+  user.avatar.public_id = avatar?.public_id;
+  user.avatar.url = avatar?.secure_url;
 
   await user.save({ validateBeforeSave: false });
 
@@ -329,3 +329,32 @@ export const socialAuth = asyncHandler(async (req, res) => {
       user,
     });
 });
+
+
+// --------------------------- JUST FOR ADMIN --------------------------->
+
+export const deleteUser = asyncHandler(async (req, res) => {
+    const id = req.user
+
+    if (!id) return res.status(401).json({ success: false, message: "Login session expired." });
+
+    const userId = req.params.id
+
+    if (!userId) return res.status(401).json({ success: false, message: "User id is required." })
+
+    const user = await User.findById(userId)
+
+    if (!user) return res.status(401).json({ success: false, message: "No user found." })
+
+
+    if (user.avatar.public_id)
+        await cloudinary.uploader.destroy(user.avatar.public_id)
+
+    await User.findByIdAndDelete(userId)
+
+    res.status(201).json({
+        message: "User deleted successfully.",
+        success: true
+    })
+
+})

@@ -1,15 +1,13 @@
 const authorizeRoles = (...roles) => {
     return (req, res, next) => {
         if (!roles.includes(req.user?.role)) {
-            return next(
-                new ErrorHandler(
-                    `Role: ${req.user.role} is not allowed to access this resouce `,
-                    403
-                )
-            );
+            return res.status(403).json({
+                message: `Role: ${req.user.role} is not allowed to access this resouce `,
+            })
+
+            next();
         }
-
-        next();
-    };
-
+    }
 }
+
+export default authorizeRoles

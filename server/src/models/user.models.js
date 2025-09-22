@@ -34,13 +34,15 @@ const userSchema = new Schema({
         type: Boolean,
         default: false
     },
-    avatar_url: {
-        type: String,
-        default: null
-    },
-    avatar_public_id: {
-        type: String,
-        default: null
+    avatar: {
+       url: {
+            type: String,
+            default: null
+        },
+        public_id: {
+            type: String,
+            default: null
+        }
     },
     role: {
         type: String,
