@@ -26,7 +26,7 @@ const features = [
 
 function AboutHero() {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-16 md:py-24">
+    <section className="w-full  py-16 md:py-24 px-4 sm:px-8 text-black dark:text-white">
       <div className="grid md:grid-cols-2 gap-8 items-center">
         {/* Left - Text */}
         <div>
@@ -57,7 +57,7 @@ function AboutHero() {
         </div>
 
         {/* Right - Visual / Illustration */}
-        <div className="relative flex items-center justify-center">
+        <div className="relative flex items-center justify-end">
           <div className="relative z-10 w-full sm:w-96 sm:h-60 rounded-3xl overflow-hidden shadow-2xl">
             <Image
               src={AboutBanner}

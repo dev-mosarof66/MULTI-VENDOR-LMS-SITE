@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import { MdOutlineStar } from "react-icons/md";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 export type Course = {
   id: number;
@@ -11,7 +11,7 @@ export type Course = {
   instructor: string;
   rating: number;
   price: string;
-  image: string;
+  image: StaticImageData;
 };
 
 interface Props {

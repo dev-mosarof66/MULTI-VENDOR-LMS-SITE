@@ -1,10 +1,15 @@
 import React from "react";
 import Login from "@/app/components/Login";
-
+import Heading from "@/app/utils/Heading";
 
 function page() {
   return (
-    <div>
+    <div className="w-full h-screen">
+      <Heading
+        title="Login | Codemy"
+        description="This is the login page of learning platform"
+        keywords="mern web development programming"
+      />
       <Login
         title="Admin Login"
         fields={[

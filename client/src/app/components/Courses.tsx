@@ -1,6 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import CourseCard, { Course } from "./CourseCard";
+import C1 from '@/assets/C1.jpeg';
+import C2 from '@/assets/C2.jpeg';
+import C3 from '@/assets/C3.jpeg';
+import C4 from '@/assets/C4.png';
 
 const dummyCourses: Course[] = [
   {
@@ -10,7 +14,7 @@ const dummyCourses: Course[] = [
     instructor: "Jane Doe",
     rating: 4.8,
     price: "$49",
-    image: "https://source.unsplash.com/400x300/?react,code",
+    image: C1,
   },
   {
     id: 2,
@@ -19,7 +23,7 @@ const dummyCourses: Course[] = [
     instructor: "John Smith",
     rating: 4.7,
     price: "$59",
-    image: "https://source.unsplash.com/400x300/?python,developer",
+    image: C2,
   },
   {
     id: 3,
@@ -28,7 +32,7 @@ const dummyCourses: Course[] = [
     instructor: "Emily Clark",
     rating: 4.9,
     price: "$69",
-    image: "https://source.unsplash.com/400x300/?design,ui",
+    image: C3,
   },
   {
     id: 4,
@@ -37,7 +41,7 @@ const dummyCourses: Course[] = [
     instructor: "Chris Lee",
     rating: 4.6,
     price: "$79",
-    image: "https://source.unsplash.com/400x300/?nextjs,web",
+    image: C4,
   },
 ];
 
@@ -63,7 +67,7 @@ function Courses() {
   return (
     <section
       id="Courses"
-      className="w-full sm:w-[90%] mx-auto min-h-screen py-12 px-6 sm:px-12"
+      className="w-full sm:w-[85%] mx-auto  min-h-screen py-12 px-4"
     >
       {/* Header */}
       <div className="text-center mb-12">

@@ -2,10 +2,13 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import HeroImg from "@/assets/hero-image.png";
-// type Props = {}
+import I1 from "@/assets/I1.jpeg";
+import I2 from "@/assets/I2.jpeg";
+import I3 from "@/assets/I3.jpeg";
 
 const Hero = () => {
   const [search, setSearch] = useState("");
+  const Avatars = [I1, I2, I3];
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -66,21 +69,15 @@ const Hero = () => {
         <div className="w-full flex flex-col sm:flex sm:flex-row items-start sm:items-center  gap-3 mt-6">
           {/* Avatars */}
           <div className="flex -space-x-4">
-            <img
-              src="https://img.daisyui.com/images/profile/demo/batperson@192.webp"
-              alt="user"
-              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white dark:border-gray-900 object-cover"
-            />
-            <img
-              src="https://img.daisyui.com/images/profile/demo/spiderperson@192.webp"
-              alt="user"
-              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white dark:border-gray-900 object-cover"
-            />
-            <img
-              src="https://img.daisyui.com/images/profile/demo/averagebulk@192.webp"
-              alt="user"
-              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white dark:border-gray-900 object-cover"
-            />
+            {Avatars.map((avt, ind) => (
+              <Image
+                key={ind}
+                src={avt}
+                alt="user"
+                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white dark:border-gray-900 object-cover"
+              />
+            ))}
+
             {/* Overlay +99 */}
             <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-purple-600 text-white flex items-center justify-center text-xs sm:text-sm font-semibold border-2 border-white dark:border-gray-900">
               +99

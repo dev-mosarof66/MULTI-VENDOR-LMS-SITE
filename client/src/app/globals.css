@@ -11,6 +11,9 @@
   --foreground: red;
 }
 
+@theme{
+  --breakpoint-xs: 33rem
+}
 
 body {
   background: var(--background);

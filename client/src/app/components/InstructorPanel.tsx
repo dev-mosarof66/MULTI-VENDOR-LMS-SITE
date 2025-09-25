@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import { FaTwitter, FaGithub } from "react-icons/fa";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import I1 from '@/assets/I1.jpeg'
 import I2 from '@/assets/I2.jpeg'
 import I3 from '@/assets/I3.jpeg'
@@ -10,7 +10,7 @@ import I3 from '@/assets/I3.jpeg'
 type TeamMember = {
   name: string;
   role: string;
-  avatar: path;
+  avatar: StaticImageData;
   twitter?: string;
   github?: string;
 };

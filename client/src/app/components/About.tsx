@@ -5,19 +5,18 @@ import AboutStats from "./AboutStats";
 import InstructorPanel from "./InstructorPanel";
 import Testimonial from "./Testimonial";
 
-
 export default function About() {
-
   return (
     <main
       id="About"
       className="w-full  bg-white dark:bg-gradient-to-b dark:from-black dark:to-gray-900 duration-300"
     >
-      <AboutHero />
-      <AboutStats />
-      <InstructorPanel />
-      <Testimonial />
-    
+      <div className="w-full sm:w-[85%] mx-auto">
+        <AboutHero />
+        <AboutStats />
+        <InstructorPanel />
+        <Testimonial />
+      </div>
     </main>
   );
 }

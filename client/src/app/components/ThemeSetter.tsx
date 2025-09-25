@@ -3,9 +3,8 @@ import { useTheme } from 'next-themes'
 import React, { useEffect, useState } from 'react'
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 
-type Props = {}
 
-const ThemeSetter = (props: Props) => {
+const ThemeSetter = () => {
 
     const { theme, setTheme } = useTheme()
     const [mounted, setMounted] = useState(false)

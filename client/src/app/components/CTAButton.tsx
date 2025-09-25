@@ -3,10 +3,9 @@ import Link from 'next/link'
 import React from 'react'
 import { FaUser } from 'react-icons/fa'
 
-type CTAProps = {
-}
 
-function CTAButton({ }: CTAProps) {
+
+function CTAButton({ }) {
     return (
         <div className="relative">
             <Link

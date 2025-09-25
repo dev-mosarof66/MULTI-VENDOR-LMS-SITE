@@ -66,7 +66,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center justify-center gap-6">
+        <div className="hidden sm:flex items-center justify-center gap-6">
           {nav.map((item) => (
             <p
               key={item}
@@ -95,7 +95,7 @@ const Navbar = () => {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: "100%", opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="w-full h-screen fixed top-0 right-0 bg-black/50 flex justify-end gap-4 z-[998] text-black dark:text-white"
+            className="w-full h-screen fixed top-0 right-0 bg-transparent backdrop-blur-2xl flex justify-end gap-4 z-[998] text-black dark:text-white"
           >
             <div className="w-64 h-full bg-white dark:bg-gray-800 text-black dark:text-white p-6  flex flex-col items-start justify-between">
               <div className="w-full flex flex-col gap-4">
