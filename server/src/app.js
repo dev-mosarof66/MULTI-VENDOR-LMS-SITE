@@ -14,7 +14,7 @@ app.use(express.urlencoded({
 }))
 app.use(express.static('public'))
 app.use(cors({
-    origin: process.env.ORIGIN,
+    origin: 'http://localhost:3000',
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization']
 }))
@@ -22,6 +22,8 @@ app.use(cors({
 
 //import route
 import userRouter from './routes/user.routes.js'
+import adminRouter from './routes/admin.routes.js'
 
 //use rotues
 app.use('/api/v1/users', userRouter)
+app.use('/api/v1/admin', adminRouter)
