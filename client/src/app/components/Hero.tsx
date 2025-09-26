@@ -54,7 +54,7 @@ const Hero = () => {
       <div className="w-full md:w-1/2 flex flex-col items-start justify-center gap-6">
         {content ? (
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
-            {content.tagline}
+            {content.tagline || 'Learn to Code with Codemy'}
           </h1>
         ) : (
           <div className="skeleton h-14 w-3/4"></div>
@@ -62,7 +62,7 @@ const Hero = () => {
 
         {content ? (
           <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300">
-            {content.subTagline}
+            {content.subTagline || 'Your journey to becoming a coding pro starts here.'}
           </p>
         ) : (
           <div className="skeleton h-10 w-2/3"></div>
