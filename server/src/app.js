@@ -27,3 +27,7 @@ import adminRouter from './routes/admin.routes.js'
 //use rotues
 app.use('/api/v1/users', userRouter)
 app.use('/api/v1/admin', adminRouter)
+
+app.get('/', (req, res) => {
+    res.send('API is running....')
+})
