@@ -30,6 +30,7 @@ const CourseCard = ({ course }: Props) => {
         alt={course.title}
         width={400}
         height={300}
+        onContextMenu={(e) => e.preventDefault()}
         className="w-full h-48 object-cover"
       />
       <div className="p-5 flex flex-col gap-2">

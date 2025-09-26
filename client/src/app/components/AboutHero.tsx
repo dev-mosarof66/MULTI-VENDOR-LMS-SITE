@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
 import { MdOutlineCode, MdSchool, MdRocketLaunch } from "react-icons/md";
-import AboutBanner from "@/assets/about-banner.avif";
 import Image from "next/image";
+import { useAppSelector } from "../hooks";
+import AboutImg from '@/assets/about-banner.avif'
 const tagline =
   "Practical, hands-on courses crafted by industry instructors. Build projects, get feedback, and launch your dev career.";
 
@@ -25,6 +26,7 @@ const features = [
 ];
 
 function AboutHero() {
+  const {content} = useAppSelector((state) => state.webContent);
   return (
     <section className="w-full  py-16 md:py-24 px-4 sm:px-8 text-black dark:text-white">
       <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -60,8 +62,11 @@ function AboutHero() {
         <div className="relative flex items-center justify-end">
           <div className="relative z-10 w-full sm:w-96 sm:h-60 rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src={AboutBanner}
+              src={content ? content.aboutImage : AboutImg}
+              width={500}
+              height={300}
               alt="coding"
+              onContextMenu={(e) => e.preventDefault()}
               className="w-full h-full object-cover"
             />
           </div>

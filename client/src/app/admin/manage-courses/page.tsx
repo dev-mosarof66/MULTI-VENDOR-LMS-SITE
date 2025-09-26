@@ -57,7 +57,7 @@ function ManageCoursesPage() {
         <h1 className="text-2xl font-bold">Manage Courses</h1>
         <button
           onClick={handleAddCourse}
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+          className="flex items-center gap-2 px-4 py-2 text-xs sm:text-sm bg-purple-600 text-white  hover:bg-purple-700 active:scale-[0.95]  cursor-pointer duration-300 delay-75"
         >
           <Plus size={18} /> Add Course
         </button>

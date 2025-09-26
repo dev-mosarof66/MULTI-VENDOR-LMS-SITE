@@ -1,6 +1,7 @@
 import { Poppins, Josefin_Sans } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from 'next-themes'
+import StoreProvider from "@/app/utils/ReduxProvider";
+import { Toaster } from "react-hot-toast";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -20,14 +21,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <ThemeProvider attribute='class'>
-        <body
-          className={`${poppins.variable} ${josefin.variable}`}
-        >
+    <html lang="en">
+      <body className={`${poppins.variable} ${josefin.variable}`}>
+        <StoreProvider>
           {children}
-        </body>
-      </ThemeProvider>
+          <Toaster />
+        </StoreProvider>
+      </body>
     </html>
   );
 }

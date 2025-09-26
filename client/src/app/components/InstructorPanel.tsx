@@ -2,10 +2,9 @@ import React from "react";
 import { motion } from "motion/react";
 import { FaTwitter, FaGithub } from "react-icons/fa";
 import Image, { StaticImageData } from "next/image";
-import I1 from '@/assets/I1.jpeg'
-import I2 from '@/assets/I2.jpeg'
-import I3 from '@/assets/I3.jpeg'
-
+import I1 from "@/assets/I1.jpeg";
+import I2 from "@/assets/I2.jpeg";
+import I3 from "@/assets/I3.jpeg";
 
 type TeamMember = {
   name: string;
@@ -14,7 +13,6 @@ type TeamMember = {
   twitter?: string;
   github?: string;
 };
-
 
 const teamSeed: TeamMember[] = [
   {
@@ -40,9 +38,7 @@ const teamSeed: TeamMember[] = [
   },
 ];
 
-
 function InstructorPanel() {
-  
   return (
     <section className="max-w-7xl mx-auto px-6 py-12  text-black dark:text-purple-500">
       <h3 className="text-2xl sm:text-3xl font-bold text-center">
@@ -62,6 +58,9 @@ function InstructorPanel() {
             <Image
               src={m.avatar}
               alt={m.name}
+              onContextMenu={(e) => e.preventDefault()}
+              width={96}
+              height={96}
               className="w-24 h-24 rounded-full object-cover shadow-sm"
             />
             <h4 className="mt-4 font-semibold">{m.name}</h4>

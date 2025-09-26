@@ -67,7 +67,7 @@ function Courses() {
   return (
     <section
       id="Courses"
-      className="w-full sm:w-[85%] mx-auto  min-h-screen py-12 px-4"
+      className="w-full sm:w-[85%] mx-auto  min-h-screen py-20 px-4"
     >
       {/* Header */}
       <div className="text-center mb-12">
