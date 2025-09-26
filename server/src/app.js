@@ -14,10 +14,12 @@ app.use(express.urlencoded({
 }))
 app.use(express.static('public'))
 app.use(cors({
-    origin: process.env.ORIGIN.split(','),
+    origin: process.env.ORIGIN,
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization']
 }))
+
+console.log(process.env.ORIGIN.split(','))
 
 
 //import route
